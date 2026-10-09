@@ -1,73 +1,71 @@
 # Shaman Assist 0.3.0 Beta 1
 
-تحديث الهيرو تالنت: أضيفت 34 خانة تنبيه موزعة على التخصصات لـStormbringer وTotemic وFarseer، مع قراءة الهيرو الحالي تلقائيًا أثناء اللعب. تفاصيل التغطية والبفات وحدود التتبع في `HERO-TALENTS.md`.
+Shaman Assist provides combat alerts, proc trackers, buff timers, cooldown timelines, and action-button glows for World of Warcraft Retail.
 
-في General تقدر تختار Auto أو أي تخصص يدويًا للإعدادات والتست. Test All وEdit Layout يعرضان التخصص المختار مع تنبيهات شجرتي الهيرو المتاحتين له. استخدم Next وPrevious أسفل القائمة للوصول إلى الصفحات الجديدة. تنبيهات اللعب تتبع تخصصك والهيرو الفعليين.
+It supports **Enhancement, Elemental, and Restoration**, automatically detects specialization changes, and keeps separate alert settings and positions for each specialization. The General page also provides a manual specialization selector for configuration and testing.
 
-يدعم **Enhancement وElemental وRestoration**، مع اكتشاف التخصص تلقائيًا عند الدخول والتبديل، وإعدادات ومواقع مستقلة لتنبيهات كل تخصص.
+The addon includes 34 hero talent alert entries covering Stormbringer, Totemic, and Farseer across all six specialization and hero-tree combinations. Gameplay alerts follow the character's active specialization and hero tree. See `HERO-TALENTS.md` for the coverage matrix and tracking details.
 
-- **Elemental**: Lava Surge، Tempest Buff، Ascendance مع تايم لاين، Lightning Shield، وتذكير إمبيو السلاح الرئيسي.
-- **Restoration**: Tidal Waves، Ascendance مع تايم لاين، Water Shield، Earth Shield على نفسك، وتذكير Earthliving للسلاح الرئيسي. Earth Shield هنا يتتبع البف على اللاعب فقط وليس أعضاء المجموعة.
-- **Test All وEdit Layout** يعرضان تنبيهات التخصص الحالي فقط، وتعرض القائمة صفحاته فقط. تغيير التخصص يوقف المعاينة ويلغي تعديل المواقع غير المحفوظ.
+## Installation
 
-## التركيب
+1. Extract the archive and copy the `ShamanAssist` folder to `_retail_/Interface/AddOns/`.
+2. Confirm the final path is `AddOns/ShamanAssist/ShamanAssist.toc`.
+3. Start World of Warcraft and enable Shaman Assist in the AddOns list. Restart the game if it was open during installation.
+4. Open settings with `/sha` or the minimap button.
 
-1. فك الضغط وانسخ مجلد `ShamanAssist` إلى مجلد اللعبة `_retail_/Interface/AddOns/`.
-2. تأكد أن المسار النهائي هو `AddOns/ShamanAssist/ShamanAssist.toc`.
-3. شغّل اللعبة وفعّل Shaman Assist من قائمة AddOns. إذا كانت اللعبة مفتوحة أثناء التركيب، أعد تشغيلها.
-4. افتح الإعدادات بكتابة `/sha` أو من زر الميني ماب.
+## Specialization support
 
-## الموجود في النسخة
+- **Enhancement:** Maelstrom Weapon, Stormstrike, Hot Hand / Lava Lash, Tempest, Lightning Shield, weapon imbues, Crash Lightning, Doom Winds, Ascendance, and hero talent alerts.
+- **Elemental:** Lava Surge, Tempest Buff, Ascendance timeline, Lightning Shield, main-hand weapon imbue reminder, and hero talent alerts.
+- **Restoration:** Tidal Waves, Ascendance timeline, Water Shield, self-cast Earth Shield tracking, Earthliving weapon reminder, and hero talent alerts. Earth Shield currently tracks the player only, not party or raid members.
+- **Test All and Edit Layout:** display alerts only for the specialization selected in General, including both hero trees available to that specialization. Changing specialization stops previews and discards unsaved layout moves.
 
-- **Tempest Buff**: عرض مستقل للبف الفعلي مع الستّاكات والمدة عند توفرها، منفصل عن تنبيه جاهزية Tempest القديم.
-- **Ascendance**: تايم لاين مفعّل افتراضيًا بالوقت المتبقي الفعلي، يتحدث عند تمديد البف ويختفي عند انتهائه أو إزالته.
-- **Doom Winds**: أيقونة للبف مع الوقت المتبقي، وخيار إظهار تايم لاين.
-- لكل عرض جديد خيارات مستقلة للأيقونة والنص والوقت والستاكات والشريط وعرضه ولونه. الشريط قابل للتحريك بعد فك قفل المواقع. تشملها معاينة **Test All**.
+## Features
 
-- زر **Test All** ثابت أعلى صفحات الإعدادات: يعرض جميع الأيقونات والنصوص والـGlow وشريط الستّاكات معًا لمدة 20 ثانية، حتى للخيارات المعطلة، دون تعديل إعداداتك. زر **Stop Test** يوقف المعاينة، وتتوقف أيضًا عند إغلاق الإعدادات أو دخول القتال.
-- أيقونة تجمع Enhancement وElemental وRestoration، مستخدمة في الميني ماب وقائمة الأدونات ونافذة الإعدادات.
+- **Tempest Buff:** a dedicated display for the active buff, stacks, and remaining duration when available, separate from the Tempest readiness alert.
+- **Ascendance:** an enabled-by-default timeline using the buff's actual remaining duration. It updates when extended and hides when the buff expires or is removed.
+- **Doom Winds:** a buff icon using texture `8026696`, with remaining time and an optional timeline.
+- Independent icon, text, timer, stack, bar, width, color, sound, and glow options for supported displays.
+- Movable alert icons, text, and timelines through Edit Layout mode.
+- A persistent **Test All** button at the top of settings. It previews every alert for the selected specialization for 20 seconds, including disabled alerts, without changing saved settings.
+- **Stop Test** ends the preview. Previews also stop when settings close or combat begins.
+- A custom Shaman icon representing Enhancement, Elemental, and Restoration in the minimap button, addon list, and settings window.
+- Maelstrom Weapon tracking with a bar and configurable threshold from 1 to 10; the default is 10.
+- Crash Lightning missing-buff tracking with an optional action-button glow.
+- Lightning Shield and temporary weapon-enchant reminders.
+- Four glow styles with separate options for action buttons and Blizzard Cooldown Manager.
+- Blizzard, Bartender, Dominos, ElvUI, and Ellesmere action-button discovery through known frames and naming patterns.
+- Minimap button and Addon Compartment support.
+- Independent saved settings in `ShamanAssistDB`, allowing installation alongside DK Assist.
 
-- عدّاد Maelstrom Weapon مع شريط وعتبة تنبيه قابلة للتعديل من 1 إلى 10، والافتراضي 10.
-- تنبيهات Stormstrike وHot Hand / Lava Lash وTempest.
-- تنبيه Crash Lightning عند التأكد من غياب البف، ويختفي عند وجوده. مفعّل أثناء القتال افتراضيًا مع Glow على زر المهارة، ويمكن تغيير إعداداته من `/sha` ثم Crash Lightning.
-- تذكير Lightning Shield عندما يتأكد الأدون أنه مفقود.
-- تذكير غياب التعزيز المؤقت للسلاح الرئيسي والثانوي. وجود **أي** تعزيز مؤقت يوقف التذكير؛ لا يتحقق الأدون من نوع التعزيز.
-- أيقونات ونصوص قابلة للتحريك، تنبيه صوتي اختياري، وأربعة أشكال Glow.
-- خيارات Glow مستقلة لأزرار المهارات وCooldown Manager.
-- عناصر إعدادات وثيمات مأخوذة من DK Assist، وزر للميني ماب ودعم Addon Compartment.
-- إعدادات مستقلة باسم `ShamanAssistDB`؛ يمكن تثبيته بجانب DK Assist.
+## Commands
 
-## الأوامر
-
-| الأمر | الوظيفة |
+| Command | Action |
 |---|---|
-| `/sha` | فتح الإعدادات |
-| `/sha test` | معاينة جميع التنبيهات لمدة 20 ثانية؛ تجربة التنبيه المنفرد مدتها 6 ثوانٍ |
-| `/sha stop` | إيقاف المعاينة |
-| `/sha unlock` | إظهار المعاينة والسماح بتحريك الأيقونات والنصوص |
-| `/sha lock` | تثبيت المواقع وإيقاف المعاينة |
-| `/sha rescan` | إعادة اكتشاف أزرار المهارات وCooldown Manager خارج القتال |
-| `/sha status` | عرض حالة المصادر والتنبيهات في الشات |
+| `/sha` | Open settings |
+| `/sha test` | Preview every alert for the selected specialization for 20 seconds; individual tests last 6 seconds |
+| `/sha stop` | Stop the current preview |
+| `/sha unlock` | Show the preview and allow alert positions to be moved |
+| `/sha lock` | Save and lock alert positions, then stop the preview |
+| `/sha rescan` | Rescan action buttons and Cooldown Manager outside combat |
+| `/sha status` | Print alert-source and detection status in chat |
 
-## حدود النسخة والتجربة
+## Beta notes and known limits
 
-- إذا لم تظهر البفات الجديدة أثناء القتال، أضف **Tempest وAscendance وDoom Winds** إلى **Tracked Buffs** في Blizzard Cooldown Manager ثم نفّذ `/sha rescan` خارج القتال. يستخدم الأدون حالة البف ومعرّف مدته من الإطار المعروف عندما تتعذر القراءة المباشرة.
-- لا يبدأ تايم لاين من مجرد ضغط المهارة ولا يعتمد مدة ثابتة: المدة مأخوذة من البف. إذا عُرف وجود البف ولم تتوفر مدته، تظهر `--`؛ والبف الذي تُؤكد القراءة أنه بلا نهاية يعرض `Active`.
-- تحديث أرقام البفات وشريطها يعمل فقط عند وجود عرض مؤقت ظاهر، ولا يمسح البفات أو الأزرار في كل إطار.
-
-- استُهدفت واجهة Retail `120100`. اجتازت الملفات فحص Lua 5.1 واختبارات منطقية ببيئة محاكاة؛ **لم تُجرَّب داخل اللعبة ولم يُفحص شكلها بصريًا داخل WoW**.
-- تنبيهات البروكات تتبع إشارات Blizzard أو بف اللاعب المقروء؛ ليست اقتراحًا لدورة ضرر مثالية ولا تضغط المهارات.
-- إذا حُجبت معلومات الستّاكات أثناء القتال، يُعرض العدد مباشرةً من API العرض إن أمكن، وإلا تظهر `?`. لا يعمل تنبيه العتبة على عدد محجوب، ولا يُخمّن العدد.
-- لتشغيل المصدر البديل لتنبيه Crash Lightning أثناء القتال، أضفه إلى **Tracked Buffs** في Blizzard Cooldown Manager ثم نفّذ `/sha rescan` خارج القتال. يستخدم الأدون حالة البف المقروءة؛ إذا لم تتوفر، يوقف التنبيه بدل التخمين. وضع المهارة في قائمة الكولداونات وحده لا يحدد وجود البف.
-- تنبيه Crash Lightning لا يشترط عدد أهداف أو جاهزية المهارة؛ يتابع غياب البف كما طلبت، بما في ذلك النسخة البديلة من البف.
-- غياب بيانات البف أثناء القتال لا يُعتبر دليلًا على فقدانه، ولذلك قد يتوقف تذكير Lightning Shield أثناء القتال.
-- بروك Tempest مرتبط بوجوده في البناء المختار؛ لا يُفترض أنه متاح لكل بناء.
-- اكتشاف الأزرار يشمل Blizzard وBartender وDominos وElvUI وEllesmere عبر أسماء وإطارات معروفة. يلزم التحقق داخل اللعبة مع إصدار واجهتك.
-- إذا تغيرت صفحة الأزرار أو الماكرو أثناء القتال، تُمسح الروابط القديمة ويؤجل اكتشافها حتى نهاية القتال؛ الأيقونات المستقلة تستمر.
-- أول تجربة مقترحة: افتح `/sha` ثم **Test all alerts**، وبعدها اختبر على دمية تدريب. استخدم `/sha status` لتحديد المصدر إذا لم يظهر تنبيه.
+- If Tempest, Ascendance, or Doom Winds does not appear during combat, add it to **Tracked Buffs** in Blizzard Cooldown Manager and run `/sha rescan` outside combat. The addon uses the known frame's buff state and duration identifier when direct aura data is unavailable.
+- Timelines do not start from a spell cast or a fixed assumed duration. They use the actual buff duration. A known active buff without readable duration shows `--`; a confirmed timeless buff shows `Active`.
+- Buff counters and bars update only while a temporary display is visible; the addon does not scan buffs or buttons every frame.
+- Retail interface `120100` is targeted. The files passed Lua 5.1 syntax checks and simulated logic tests. This beta still requires continued verification in the live game.
+- Proc alerts follow Blizzard proc signals or readable player auras. They are not rotation recommendations and never activate abilities.
+- If stack data is restricted during combat, the addon reads the display API when possible and otherwise shows `?`. It never guesses a hidden stack count.
+- Crash Lightning tracks the confirmed absence of its buff, including its alternate buff variant. It does not require a target count or spell-ready check.
+- Missing combat aura data is not treated as proof that a buff is absent, so some missing-buff reminders may pause when the game restricts the source.
+- Tempest proc tracking depends on Tempest being available in the selected build.
+- If action pages or macros change during combat, stale button links are cleared and rescanning waits until combat ends. Standalone alert icons continue working.
+- For a first test, open `/sha`, run **Test All**, then test against a training dummy. Use `/sha status` to identify the data source if an alert does not appear.
 
 ## Attribution
 
-Shared settings controls, theme palettes, glow wrappers, minimap launcher and button discovery patterns are adapted from DK Assist 2.1.9. The original MIT license is included in `LICENSE`. Bundled LibStub and LibCustomGlow retain their source headers.
+Shared settings controls, theme palettes, glow wrappers, minimap launcher, and button discovery patterns are adapted from DK Assist 2.1.9. The original MIT license is included in `LICENSE`. Bundled LibStub and LibCustomGlow retain their source headers.
 
-Current API signatures were checked against Blizzard's generated documentation mirrored in [wow-ui-source](https://github.com/Gethe/wow-ui-source/tree/live/Interface/AddOns/Blizzard_APIDocumentationGenerated), including [aura data](https://github.com/Gethe/wow-ui-source/blob/live/Interface/AddOns/Blizzard_APIDocumentationGenerated/UnitAuraDocumentation.lua), [specializations](https://github.com/Gethe/wow-ui-source/blob/live/Interface/AddOns/Blizzard_APIDocumentationGenerated/SpecializationInfoDocumentation.lua) and [temporary enchants](https://github.com/Gethe/wow-ui-source/blob/live/Interface/AddOns/Blizzard_APIDocumentationGenerated/PaperDollInfoDocumentation.lua). The Enhancement aura IDs were cross-checked against [SimulationCraft's Shaman implementation](https://github.com/simulationcraft/simc/blob/midnight/engine/class_modules/sc_shaman.cpp).
+Current API signatures were checked against Blizzard's generated documentation mirrored in [wow-ui-source](https://github.com/Gethe/wow-ui-source/tree/live/Interface/AddOns/Blizzard_APIDocumentationGenerated), including [aura data](https://github.com/Gethe/wow-ui-source/blob/live/Interface/AddOns/Blizzard_APIDocumentationGenerated/UnitAuraDocumentation.lua), [specializations](https://github.com/Gethe/wow-ui-source/blob/live/Interface/AddOns/Blizzard_APIDocumentationGenerated/SpecializationInfoDocumentation.lua), and [temporary enchants](https://github.com/Gethe/wow-ui-source/blob/live/Interface/AddOns/Blizzard_APIDocumentationGenerated/PaperDollInfoDocumentation.lua). Enhancement aura IDs were cross-checked against [SimulationCraft's Shaman implementation](https://github.com/simulationcraft/simc/blob/midnight/engine/class_modules/sc_shaman.cpp).
