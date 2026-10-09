@@ -1,0 +1,22 @@
+## Interface: 120100
+## Title: Shaman Assist
+## Notes: Automatic Enhancement, Elemental and Restoration proc and buff alerts
+## Author: FaneyQ8
+## Version: 0.3.0-beta.1
+## IconTexture: Interface\AddOns\ShamanAssist\Media\ShamanAssistIcon.tga
+## SavedVariables: ShamanAssistDB
+## AddonCompartmentFunc: ShamanAssist_AddonCompartmentClick
+## AddonCompartmentFuncOnEnter: ShamanAssist_AddonCompartmentEnter
+## AddonCompartmentFuncOnLeave: ShamanAssist_AddonCompartmentLeave
+## OptionalDeps: LibCustomGlow-1.0, HidingBar, EllesmereUICooldownManager
+
+Libs/LibStub/LibStub.lua
+Libs/LibCustomGlow-1.0/LibCustomGlow-1.0.lua
+HeroTalents.lua
+Core.lua
+GlowStyles.lua
+Display.lua
+BuffTrackers.lua
+ButtonScanner.lua
+Config.lua
+MinimapButton.lua
